@@ -1,9 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
+  <meta charset="UTF-8" />
+  <title>🐧 Palmer Penguins Dashboard</title>
+  <script type="module" src="dashboard.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+    }
+    .section {
+      margin-bottom: 2rem;
+    }
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      max-width: 600px;
+      background: #f9f9f9;
+    }
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    svg {
+      font: 12px sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>🐧 Palmer Penguins Dashboard</h1>
 
-    </head>
-    <body>
-        
-    </body>
+  <!-- Group By Dropdown -->
+  <div class="section">
+    <label for="groupingField"><strong>Group By:</strong></label>
+    <select id="groupingField">
+      <option value="island">island</option>
+      <option value="species">species</option>
+    </select>
+  </div>
+
+  <!-- Traits -->
+  <div class="section">
+    <label><strong>Select Traits for Heatmap:</strong></label>
+    <div id="traitSelector" class="checkbox-group"></div>
+  </div>
+
+  <!-- Heatmap -->
+  <div class="section">
+    <h2>Group Average Heatmap</h2>
+    <div id="heatmap"></div>
+  </div>
+
+  <!-- Filters -->
+  <div class="section">
+    <h3>Filters for Sankey Diagram</h3>
+
+    <label><strong>Species:</strong></label>
+    <div id="speciesFilter" class="checkbox-group"></div>
+
+    <label><strong>Sex:</strong></label>
+    <div id="sexFilter" class="checkbox-group"></div>
+
+    <label><strong>Year:</strong></label>
+    <div id="yearFilter" class="checkbox-group"></div>
+  </div>
+
+  <!-- Sankey Dimensions -->
+  <div class="section">
+    <label><strong>Sankey Dimensions (2–3):</strong></label>
+    <div id="sankeyDims" class="checkbox-group"></div>
+  </div>
+
+  <!-- Sankey Diagram -->
+  <div class="section">
+    <h2>Sankey Diagram</h2>
+    <div id="sankey"></div>
+  </div>
+</body>
 </html>
+
