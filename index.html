@@ -32,14 +32,63 @@
   </style>
 </head>
 <body>
-  <h1>🐧 Palmer Penguins Dashboard</h1>
+  <h1>🐧 Palmer Penguins 🐧</h1>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~INTRO~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <div class="section">
+    <h2>Introduction</h2>
+    <body>
+      Our goal in this project is to estimate the phylogenetic relationships of<br>
+      the Adelie, Gentoo, and Chinstrap penguins. These three species of penguins<br>
+      all share a common ancestor, and one of those species diverged from that common<br>
+      ancestry a longer time ago than the other two species. That species is called<br>
+      the “outgroup,” and the other two species are called “sisters.” Because the <br>
+      outgroup diverged a longer time ago, it will have undergone more evolutionary <br>
+      changes than the sisters. So we can identify which species is the outgroup by<br>
+      seeing which species is the most different from the other two.<br><br>
+      <img src="assets/Phylogeny_image_for_intro.jpg", alt="Example of a Phylogeny"
+      width = "400"/>
+    </body>
+  </div>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~SCATTERPLOT~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <div>
+    <h2>Phenotypic Data Overview - Scatterplot Array</h2>
+    To start, let’s get a basic idea of what our penguins are like by looking at key <br>
+    areas of interest in their phenotype: Their bill depth, bill length, body mass, <br>
+    and flipper length. This graph serves as our first peek at the data and inspires <br>
+    questions we can ask next.
+  </div>
+
+  <div class="section">
+    <div id="scatter"></div>
+  </div>
+
+  <div>
+    This graph reveals that the penguins are generally similar, as we don’t see separate <br>
+    clusters for each species, but there is a small amount of separation going on around <br>
+    the edge of each cluster. <br><br><br>
+  </div>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~HEATMAP~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <div>
+    <h2>Phenotypic Data Closer Look - Heatmap</h2>
+    The scatterplot shows us that we won’t be seeing distinct clusters representing each <br>
+    species. The differences between them will be more subtle. Evolutionarily speaking,<br>
+    this makes sense, as the groups did not diverge a very long time ago and still occupy<br>
+    similar habitats. So instead of a scatter plot, let’s make use of a heatmap to show<br>
+    the relative magnitudes of our phenotypes.<br><br>
+  </div>
 
   <!-- Group By Dropdown -->
   <div class="section">
     <label for="groupingField"><strong>Group By:</strong></label>
     <select id="groupingField">
-      <option value="island">island</option>
       <option value="species">species</option>
+      <option value="island">island</option>
     </select>
   </div>
 
@@ -53,6 +102,48 @@
   <div class="section">
     <h2>Group Average Heatmap</h2>
     <div id="heatmap"></div>
+  </div>
+
+  <div>
+    This shows a pretty clear distinction, that the Gentoo are generally larger than the <br>
+    Adelie and Chinstrap. This would suggest that the Gentoo are the outgroup, and the <br>
+    Adelie and Chinstrap are the sisters by the <b>Morphological Species Concept.</b> It's <br>
+    certainly compelling, but not enough to be completely convincing.<br><br>
+
+    <b>DEFINITION - Morphological Species Concept:</b><br>
+    Classifying groups into species based on their <u>physical characteristics</u><br><br>
+  </div>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~BAR CHART~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <div>
+    <h2>Dietary Data Overview - Interactable Bar Chart</h2>
+    The phenotypic differences make a case for the Gentoo being the outgroup, but <br>
+    we shouldn't stop there. Another avenue we can explore is the diets of each <br>
+    species. Let's visualize that with some bar charts.<br><br>
+  </div>
+  
+  <div class="section">
+    <div id="bar-chart"></div>
+  </div>
+
+  <div>
+    This bar chart, however, isn’t as conclusive as the heatmap. Each of the <br>
+    three species eats pretty similar amounts of squid, and they are all fed by <br>
+    their parents at similar rates, but when it comes to their primary food <br>
+    sources of fish and krill, there is variation among all three groups. No <br>
+    two groups eat exactly the same diet, which is unexpected. Perhaps an <br>
+    explanation for this is that the penguins occupy different areas, so there<br>
+    is different food available.<br><br>
+  </div>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~SANKEY~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <div>
+    <h2>Incorporating Geographic Data - Sankey Diagram</h2>
+    Let’s incorporate the question of geography. Geography is a major factor in <br>
+    speciation, because geographic separation is one of the main ways a group splits<br>
+     into two species over time. These penguins can be found on three Antarctic islands: <br>
+     Togensen, Biscoe, and Dream island.<br><br>
   </div>
 
   <!-- Filters -->
@@ -80,6 +171,70 @@
     <h2>Sankey Diagram</h2>
     <div id="sankey"></div>
   </div>
+
+  <div>
+    This diagram is very revealing: the Adelie penguins exist on all 3 islands, but the <br>
+    Gentoo and Chinstrap are only found on a single island each. This answers our question <br>
+    of why the dietary data didn’t match speciation patterns: No two species occupy exactly <br>
+    the same spaces.<br><br>
+    This new understanding of the geographic locations of the penguins is actually <b>very</b><br>
+    important, because we now know that the Adelie penguins occupy the same habitats<br>
+    as both Gentoo and Chinstrap penguins, but the Gentoo and Chinstrap habitats do<br>
+    not overlap with each other.<br><br>
+  </div>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~BIOLOGY TALK~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <div>
+    <h2>Significance of Sankey Insight</h2>
+    
+    This means that the Adelie penguins are separated from the Gentoo and Chinstrap penguins <br>
+    by <b>sympatric</b> barriers, rather than the <b>allopatric</b> barrier between Gentoo and Chinstrap.<br>
+    <img src="assets/barriers_infographic.png" alt="An infographic explaining different types of barriers to reproduction in evolutionary biology."
+    width = "600" /><br>
+    In other words, there is no cross-breeding between Adelie and the other penguin species<br>
+    because the two groups don’t see each other as potential mates. On the other hand, the <br>
+    reason Gentoo and Chinstrap penguins don’t cross-breed is simply because they don’t <br>
+    naturally encounter each other. The existence of sympatric barriers around the Adelie <br>
+    penguin is a textbook example of the <b>Biological Species Concept</b>, strong evidence <br>
+    that they are the outgroup, and the Gentoo and Chinstrap are the sisters.<br><br>
+
+    <b>DEFINITION - Biological Species Concept:</b><br>
+    Classifying groups into species based on <u>who they reproduce with.</u><br><br>
+  </div>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~CONCLUSION~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <div>
+    <h2>Conclusion</h2>
+    In this interactive slideshow, we have used visualizations to understand our dataset, and to <br>
+    use that understanding to guide our questioning process. We first used a basic scatter plot <br>
+    to get a basic understanding of our data, which led us to our heatmap showing how the Gentoo <br>
+    penguins tend to have larger bodies than the other groups, which is notable, albeit somewhat <br>
+    weak, evidence of the Gentoo being the outgroup.<br><br>
+
+    Next, we constructed a basic bar chart to look at the dietary habits of the penguins. We <br>
+    couldn’t quite explain the bar chart in terms of phylogenetic relationship, and instead we <br>
+    hypothesized that the answer lied in geography. Therefore, we made a sankey diagram that also <br>
+    illustrated the penguin’s geography, as well as their diets. Our hunch was right; the penguins <br>
+    all have dissimilar geographical habitats. More importantly, this revealed that the Adelie <br>
+    penguins coexist with the Gentoo and Chinstrap penguins, but the Gentoo and Chinstrap penguins <br>
+    do not coexist with each other. This indicates the existence of sympatric barriers between the <br>
+    Adelie and the others, which is very strong evidence of the Adelie being the outgroup.<br><br>
+
+    So our conclusion is that the Adelie penguins are the outgroup. With this, we looked at professional <br>
+    research into the topic, and it looks like we’re right! The study <u><i>Multiple gene evidence for expansion <br>
+    of extant penguins out of Antarctica due to global cooling</u></i> by Baker et. al. uses genetic data to reach <br>
+    the same conclusion; that the Adelie penguins diverged longer ago than the Gentoo and Chinstraps, <br>
+    matching our conclusion.<br><br>
+
+    <b>Reference</b><br>
+    Baker AJ, Pereira SL, Haddrath OP, Edge KA. Multiple gene evidence<br>
+    for expansion of extant penguins out of Antarctica due to global cooling. <br>
+    Proc Biol Sci. 2006 Jan 7;273(1582):11-7. doi: 10.1098/rspb.2005.3260. <br>
+    PMID: 16519228; PMCID: PMC1560011.<br>
+  </div>
+
 </body>
 </html>
 
