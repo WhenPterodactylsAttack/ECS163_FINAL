@@ -158,7 +158,7 @@ function drawSankey() {
 
   const graph = sankey().nodeWidth(20).nodePadding(10).extent([[1, 1], [800 - 1, 500 - 1]])(sankeyData);
   d3.select("#sankey").html("");
-  const svg = d3.select("#sankey").append("svg").attr("width", 650).attr("height", 500);
+  const svg = d3.select("#sankey").append("svg").attr("width", 800).attr("height", 500);
 
   const color = d3.scaleOrdinal(d3.schemeCategory10).domain(nodeNames);  // add this line above the svg
 
@@ -474,14 +474,13 @@ function drawBars() {
   form.addEventListener("change", () => updateChart(form.value));
 }
 
-// Render everything
+
 renderCheckboxes("traitSelector", TRAITS);
 renderCheckboxes("sankeyDims", AVAILABLE_FIELDS, ["sex", "life_stage", "year"]);
 renderCheckboxes("speciesFilter", Array.from(new Set(penguins.map(d => d.species))));
 renderCheckboxes("sexFilter", Array.from(new Set(penguins.map(d => d.sex))));
 renderCheckboxes("yearFilter", Array.from(new Set(penguins.map(d => d.year))));
 
-// Draw everything
 addCheckboxListeners();
 drawScatter();
 drawHeatmap();
