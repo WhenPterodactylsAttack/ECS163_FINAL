@@ -474,13 +474,14 @@ function drawBars() {
   form.addEventListener("change", () => updateChart(form.value));
 }
 
-
+// Render everything
 renderCheckboxes("traitSelector", TRAITS);
 renderCheckboxes("sankeyDims", AVAILABLE_FIELDS, ["sex", "life_stage", "year"]);
 renderCheckboxes("speciesFilter", Array.from(new Set(penguins.map(d => d.species))));
 renderCheckboxes("sexFilter", Array.from(new Set(penguins.map(d => d.sex))));
 renderCheckboxes("yearFilter", Array.from(new Set(penguins.map(d => d.year))));
 
+// Draw everything
 addCheckboxListeners();
 drawScatter();
 drawHeatmap();
